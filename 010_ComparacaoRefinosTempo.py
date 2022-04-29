@@ -1,0 +1,87 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Apr 15 14:18:25 2022
+
+@author: luishatashita
+"""
+
+import matplotlib.pyplot as plt
+
+uniform_1 = [0.0220, 0.0163, 0.0883, 0.0126, 0.0169]
+adaptive_1 = [0.0129, 0.0189, 0.0332, 0.0136, 0.0780]
+
+# uniform_1_2 = [0.0091, 0.0044, 0.0068, 0.0016, 0.0019]
+# adaptive_1_2 = [0.0017, 0.0018, 0.0074, 0.0104, 0.0114]
+
+uniform_no_outlier_1 = [0.0220, 0.0163, 0.0126, 0.0169]
+adaptive_no_outlier_1 = [0.0129, 0.0189, 0.0332, 0.0136]
+
+data_1 = [uniform_1, adaptive_1]
+# data_1 = [uniform_1, adaptive_1, uniform_1_2, adaptive_1_2]
+
+data_no_outlier_1 = [uniform_no_outlier_1, adaptive_no_outlier_1]
+
+plt.figure(1)
+plt.subplot(121)
+plt.boxplot(data_1, showmeans=True)
+plt.xlabel('Refinement Type')
+plt.xticks([1, 2], ['Uniform', 'Adaptive'])
+plt.ylabel('Time [$s$]')
+plt.title('(a) 5 samples')
+plt.subplot(122)
+plt.boxplot(data_no_outlier_1, showmeans=True)
+plt.xlabel('Refinement Type')
+plt.xticks([1, 2], ['Uniform', 'Adaptive'])
+plt.ylabel('Time [$s$]')
+plt.title('(b) Without Outlier')
+
+plt.suptitle('Mesh Comparison - Elapsed Time')
+ 
+uniform_2 = [0.0283, 0.0185, 0.0201, 0.0315, 0.0297]
+adaptive_2 = [0.0457, 0.0361, 0.0530, 0.0769, 0.0485]
+
+adaptive_no_outlier_2 = [0.0457, 0.0361, 0.0530, 0.0485]
+
+data_2 = [uniform_2, adaptive_2]
+
+data_no_outlier_2 = [uniform_2, adaptive_no_outlier_2]
+
+uniform_3 = [0.2233, 0.2125, 0.1895, 0.1861, 0.1845]
+adaptive_3 = [0.4098, 0.3688, 0.4356, 0.4750, 0.4175]
+
+adaptive_no_outlier_3 = [0.4098, 0.4356, 0.4175]
+
+data_3 = [uniform_3, adaptive_3]
+
+data_no_outlier_3 = [uniform_3, adaptive_no_outlier_3]
+
+plt.figure(2)
+plt.subplot(221)
+plt.boxplot(data_2, showmeans=True)
+# plt.xlabel('Refinement Type')
+plt.xticks([1, 2], ['Uniform', 'Adaptive'])
+plt.ylabel('Time [$s$]')
+plt.title('(2) (a) 5 samples')
+plt.subplot(222)
+plt.boxplot(data_no_outlier_2, showmeans=True)
+# plt.xlabel('Refinement Type')
+plt.xticks([1, 2], ['Uniform', 'Adaptive'])
+# plt.ylabel('Time [$s$]')
+plt.title('(2) (b) Without Outlier')
+plt.subplot(223)
+plt.boxplot(data_3, showmeans=True)
+plt.xlabel('Refinement Type')
+plt.xticks([1, 2], ['Uniform', 'Adaptive'])
+plt.ylabel('Time [$s$]')
+plt.title('(3) (c) 5 samples')
+plt.subplot(224)
+plt.boxplot(data_no_outlier_3, showmeans=True)
+plt.xlabel('Refinement Type')
+plt.xticks([1, 2], ['Uniform', 'Adaptive'])
+# plt.ylabel('Time [$s$]')
+plt.title('(3) (d) Without Outliers')
+
+plt.suptitle('Mesh Comparison - Elapsed Time')
+
+plt.show()
